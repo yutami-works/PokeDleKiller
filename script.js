@@ -34,11 +34,13 @@ async function callApi() {
         // idを表示
         var id = document.createElement('p');
         id.innerHTML = 'No.' + pokeId;
+        id.className = 'heading';
         div.appendChild(id);
 
         // 名前を表示
         var name = document.createElement('p');
         name.innerHTML = pokeName;
+        name.className = 'heading';
         div.appendChild(name);
 
         // タイプを表示
