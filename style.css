@@ -1,5 +1,15 @@
+.site-header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-left: 10px;
+  background-color: grey;
+}
+
 #wrapper {
   width: 100%;
+  padding-top: 150px;
   margin: 0 auto;
   text-align: center;
 }
@@ -144,6 +154,12 @@ img{
     font-size: 14px;
   }
 
+  #wrapper {
+    width: 100%;
+    padding-top: 120px;
+    margin: 0 auto;
+    text-align: center;
+  }
 
   .c1, .c5{
     width: 90px;
