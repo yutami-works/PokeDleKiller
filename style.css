@@ -1,0 +1,140 @@
+#wrapper {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+img{
+  background-color: white;
+  border: 2px solid black;
+}
+
+@media screen and (max-width:600px) {
+
+}
+
+.normal {
+  background-color: #aea886;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.fire {
+  background-color: #f45c19;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.water {
+  background-color: #4a96d6;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.electric {
+  background-color: #eaa317;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.grass {
+  background-color: #28b25c;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.ice {
+  background-color: #45a9c0;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.fighting {
+  background-color: #9a3d3e;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.poison {
+  background-color: #8f5b98;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.ground {
+  background-color: #916d3c;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.flying {
+  background-color: #7e9ecf;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.psychic {
+  background-color: #d56d8b;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.bug {
+  background-color: #989001;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.rock {
+  background-color: #878052;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.ghost {
+  background-color: #555fa4;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.dragon {
+  background-color: #454ba6;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.dark {
+  background-color: #7a0049;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.steel {
+  background-color: #9b9b9b;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.fairy {
+  background-color: #ffbbff;
+  display: inline-block;
+  border: 2px solid black;
+  padding: 10px;
+}
