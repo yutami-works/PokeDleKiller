@@ -60,7 +60,7 @@ async function callApi() {
             div.className = 'c5 col-4 col-md-2 col-xl-1 p-1 border border-1 border-dark';
         }
         else {
-            div.className = 'c1 col-4  col-md-2 col-xl-1 p-1 border border-1 border-dark';
+            div.className = 'c1 col-4 col-md-2 col-xl-1 p-1 border border-1 border-dark';
         }
         // タイプによって背景色を変える（クラスを付与する）
         switch (pokeType1){
