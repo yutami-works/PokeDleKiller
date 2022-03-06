@@ -31,22 +31,26 @@
 </head>
 <body>
 <div class="container-fluid">
-  <header class="sticky-top bg-secondary p-1">
-    <h1>ぽけどるきらー(仮)</h1>
-    <p>
-      <input type="button" value="全て" onclick="filterReset ()">
-      <input type="button" value="5文字のみ" onclick="filterFive ()">
-    </p>
-  </header>
+  <div class="row">
+    <header class="sticky-top bg-secondary p-1">
+      <h1>ぽけどるきらー(仮)</h1>
+      <p>
+        <input type="button" value="全て" onclick="filterReset ()">
+        <input type="button" value="5文字のみ" onclick="filterFive ()">
+      </p>
+    </header>
+  </div>
 
   <div id="wrapper" class="row"></div>
 
-  <footer class="bg-secondary p-1">
-    <!--カウンター画像からは配布サイトへリンクが設定されています。-->
-    <a href="https://www.free-counter.jp/">
-      <img class="float-right text-right" src="https://www.f-counter.net/j/48/1646556489/" alt="アクセスカウンター">
-    </a>
-  </footer>
+  <div class="row">
+    <footer class="bg-secondary p-1">
+      <!--カウンター画像からは配布サイトへリンクが設定されています。-->
+      <a href="https://www.free-counter.jp/">
+        <img class="float-right text-right" src="https://www.f-counter.net/j/48/1646556489/" alt="アクセスカウンター">
+      </a>
+    </footer>
+  </div>
   <script src="script.js"></script>
 
 </body>
