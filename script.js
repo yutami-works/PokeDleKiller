@@ -28,19 +28,20 @@ async function callApi() {
 
         // img要素を生成
         var img = document.createElement('img');
+        img.className = 'w-100 bg-light border border-1 border-dark'
         img.src = pokeImageUrl; // 画像パスを追加
         div.appendChild(img); // img要素をdiv要素の子要素に追加
 
         // idを表示
         var id = document.createElement('p');
         id.innerHTML = 'No.' + pokeId;
-        id.className = 'heading';
+        id.className = 'w-100 m-0';
         div.appendChild(id);
 
         // 名前を表示
         var name = document.createElement('p');
         name.innerHTML = pokeName;
-        name.className = 'heading';
+        name.className = 'w-100 m-0';
         div.appendChild(name);
 
         // タイプを表示
@@ -56,10 +57,10 @@ async function callApi() {
         */
 
         if ( pokeName.length === 5 ) {
-            div.className = 'c5';
+            div.className = 'c5 col-4 col-md-2 col-xl-1 p-1 border border-1 border-dark';
         }
         else {
-            div.className = 'c1'
+            div.className = 'c1 col-4  col-md-2 col-xl-1 p-1 border border-1 border-dark';
         }
         // タイプによって背景色を変える（クラスを付与する）
         switch (pokeType1){
