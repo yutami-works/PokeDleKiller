@@ -41,7 +41,7 @@ async function callApi() {
         // 名前を表示
         var name = document.createElement('p');
         name.innerHTML = pokeName;
-        name.className = 'w-100 m-0';
+        name.className = 'w-100 m-0 text-center';
         div.appendChild(name);
 
         // タイプを表示
