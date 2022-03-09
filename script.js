@@ -56,69 +56,71 @@ async function callApi() {
         div.appendChild(type);
         */
 
-        if ( pokeName.length === 5 ) {
-            div.className = 'c5 col-4 col-md-2 col-xl-1 p-1 border border-1 border-dark';
-        }
-        else {
-            div.className = 'c1 col-4 col-md-2 col-xl-1 p-1 border border-1 border-dark';
-        }
         // タイプによって背景色を変える（クラスを付与する）
         switch (pokeType1){
         case 'normal':
-            div.className += ' normal';
+            div.className = 'normal';
             break;
         case 'fire':
-            div.className += ' fire';
+            div.className = 'fire';
             break;
         case 'water':
-            div.className += ' water';
+            div.className = 'water';
             break;
         case 'electric':
-            div.className += ' electric';
+            div.className = 'electric';
             break;
         case 'grass':
-            div.className += ' grass';
+            div.className = 'grass';
             break;
         case 'ice':
-            div.className += ' ice';
+            div.className = 'ice';
             break;
         case 'fighting':
-            div.className += ' fighting';
+            div.className = 'fighting';
             break;
         case 'poison':
-            div.className += ' poison';
+            div.className = 'poison';
             break;
         case 'ground':
-            div.className += ' ground';
+            div.className = 'ground';
             break;
         case 'flying':
-            div.className += ' flying';
+            div.className = 'lying';
             break;
         case 'psychic':
-            div.className += ' psychic';
+            div.className = 'psychic';
             break;
         case 'bug':
-            div.className += ' bug';
+            div.className = 'bug';
             break;
         case 'rock':
-            div.className += ' rock';
+            div.className = 'rock';
             break;
         case 'ghost':
-            div.className += ' ghost';
+            div.className = 'ghost';
             break;
         case 'dragon':
-            div.className += ' dragon';
+            div.className = 'dragon';
             break;
         case 'dark':
-            div.className += ' dark';
+            div.className = 'dark';
             break;
         case 'steel':
-            div.className += ' steel';
+            div.className = 'steel';
             break;
         case 'fairy':
-            div.className += ' fairy';
+            div.className = 'fairy';
             break;
         default:
+        }
+
+        //基本スタイル付与
+        if ( pokeName.length === 5 ) {
+            div.className += ' c5 col-4 col-md-2 col-xl-1 p-1 border border-1 border-dark';
+        }
+        else {
+            div.className += ' c1 col-4 col-md-2 col-xl-1 p-1 border border-1 border-dark d-none';
         }
 
         // 生成したdiv要素を、wrapperに追加する
@@ -126,17 +128,56 @@ async function callApi() {
     }
 }
 
+//表示リセット
 function filterReset () {
-    const notfive = document.getElementsByClassName("c1");
-    for (var i = 0; i < notfive.length; i++) {
-        a = notfive[i].style.display ="inline-block";
+    const notFive = document.getElementsByClassName("c1");
+    for (var i = 0; i < notFive.length; i++) {
+        notFive[i].style.display ="inline-block";
+    }
+    const nameFive = document.getElementsByClassName("c5");
+    for (var i = 0; i < nameFive.length; i++) {
+        nameFive[i].style.display ="inline-block";
     }
 }
 
 function filterFive () {
-    const notfive = document.getElementsByClassName("c1");
-    for (var i = 0; i < notfive.length; i++) {
-        a = notfive[i].style.display ="none";
+    const notFive = document.getElementsByClassName("c1");
+    for (var i = 0; i < notFive.length; i++) {
+        notFive[i].style.display ="none";
+    }
+}
+
+function revivalFive () {
+    const nameFive = document.getElementsByClassName("c5");
+    for (var i = 0; i < nameFive.length; i++) {
+        nameFive[i].style.display ="inline-block";
+    }
+}
+
+//検索フィルター
+function wordSearch () {
+    const targetWord = document.getElementById("search-box").value;
+    const nameFive = document.getElementsByClassName("c5");
+    for (var i = 0; i < nameFive.length; i++) {
+        var targetName = nameFive[i].lastElementChild.textContent;
+        if (targetName.indexOf(targetWord) != -1) {
+            nameFive[i].style.display ="inline-block";
+        }
+        else {
+            nameFive[i].style.display ="none";
+        }
+    }
+
+}
+
+//検索ボックスエラー表示
+function inputCheck() {
+    var inputValue = document.getElementById( "search-box" ).value;
+    if (!(inputValue.match(/^[ァ-ンヴー]*$/))) {
+        document.getElementById( "check" ).innerHTML = 'カタカナで入力してください';
+    }
+    else {
+        document.getElementById( "check" ).innerHTML = '';
     }
 }
 

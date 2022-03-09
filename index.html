@@ -34,10 +34,17 @@
   <div class="row sticky-top">
     <header class="bg-secondary p-1 col-1 w-100">
       <h1>ぽけどるきらー(仮)</h1>
-      <p>
-        <input type="button" value="全て" onclick="filterReset ()">
-        <input type="button" value="5文字のみ" onclick="filterFive ()">
-      </p>
+      <div>
+        <button type="button" class="btn btn-primary" onclick="filterReset ()">表示リセット</button>
+        <!-- 調整中
+        <button type="button" class="btn btn-info" onclick="filterFive ()">5文字のみ</button>
+        -->
+      </div>
+      <div class="word-search">
+        <input type="text" id="search-box" onkeyup="inputCheck()">
+        <button type="button" class="btn btn-success" onclick="wordSearch ()">検索</button>
+      </div>
+      <div id="check" class="fw-bold text-danger"></div>
     </header>
   </div>
 
@@ -46,8 +53,8 @@
   <div class="row">
     <footer class="bg-secondary p-1">
       <!--カウンター画像からは配布サイトへリンクが設定されています。-->
-      <a href="https://www.free-counter.jp/">
-        <img class="float-right text-right" src="https://www.f-counter.net/j/48/1646556489/" alt="アクセスカウンター">
+      <a href="https://www.free-counter.jp/" class="float-right">
+        <img src="https://www.f-counter.net/j/48/1646556489/" alt="アクセスカウンター">
       </a>
     </footer>
   </div>
