@@ -1,5 +1,5 @@
 # PokeDleKiller
-ポケモンWordle攻略用ダイパ全国図鑑：「ぽけどるきらー（仮）」
+[ポケモンWordle](https://wordle.mega-yadoran.jp/)攻略用ダイパ全国図鑑：「ぽけどるきらー（仮）」
 
 ### 機能
 - ポケットモンスターダイヤモンド・パールまでのポケモン493匹を表示
@@ -7,5 +7,4 @@
 - カタカナ検索
 
 ### 公開URL
-https://yutami-works.github.io/PokeDleKiller/ 
-※ 読み込みが遅いので要修正
+https://yutami-works.github.io/PokeDleKiller/
