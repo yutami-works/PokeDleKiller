@@ -35,12 +35,12 @@
     <header class="bg-primary bg-gradient p-1 col-1 w-100">
       <h1>ぽけどるきらー(仮)</h1>
       <div>
-        <button type="button" class="btn btn-light" onclick="filterReset ()">表示リセット</button>
-        <button type="button" class="btn btn-info" onclick="filterFive ()">5文字のみ</button>
+        <button type="button" class="btn btn-success" onclick="filterReset ()">表示リセット</button>
+        <button type="button" class="btn btn-warning" id="filter-five-btn">5文字フィルター</button>
       </div>
       <div class="word-search">
         <input type="text" id="search-box" onkeyup="inputCheck ()">
-        <button type="button" class="btn btn-success" onclick="wordSearch ()">検索</button>
+        <button type="button" class="btn btn-info" onclick="wordSearch ()">検索</button>
       </div>
       <div id="check" class="fw-bold text-danger"></div>
     </header>
