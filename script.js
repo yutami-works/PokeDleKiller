@@ -1,14 +1,17 @@
-// 特定関数内でしか使わない変数は関数内で宣言する
+/* 既定エレメント */
 
-// 既定エレメント
-const pokeFramesId = 'poke-frame'
-const filterFiveBtnId = 'filter-five-btn';
-const pokeFrames = document.getElementsByClassName(pokeFramesId);
-const filterFiveBtn = document.getElementById(filterFiveBtnId);
+const pokeFramesId     = 'poke-frame'
+const resetFilterBtnId = 'reset-filter-btn';
+const filterFiveBtnId  = 'filter-five-btn';
+const pokeFrames     = document.getElementsByClassName(pokeFramesId);
+const resetFilterBtn = document.getElementById(resetFilterBtnId);
+const filterFiveBtn  = document.getElementById(filterFiveBtnId);
 
 // グローバル変数
 const fiveNameClass = 'c5';
 const notFiveNameClass = 'c1';
+
+/* 関数群 */
 
 // range関数
 const createNumberList = (startNum, endNum) => {
@@ -50,7 +53,7 @@ const createPokeBookElement = (pokeData) => {
   let divClassName = 'poke-frame col-4 col-md-2 col-xl-1 p-1 border border-1 border-dark';
   const imgClassName = 'w-100 bg-light border border-1 border-dark';
   const pNoClassName = 'w-100 m-0';
-  const pNameClassName = 'poke-name w-100 m-0 text-center';
+  const pNameClassName = 'w-100 m-0 text-center';
 
   // 個別divクラス名生成
   if (pokeData.name.length === 5 ) {
@@ -89,6 +92,13 @@ const createPokeBookElement = (pokeData) => {
   bookWrapper.appendChild(div);
 }
 
+// フィルターリセット関数
+const resetFilter = () => {
+  for (const frame of pokeFrames) {
+    frame.style.display ="inline-block";
+  }
+}
+
 // 5文字フィルター関数
 const filterFive = () => {
   for (const frame of pokeFrames) {
@@ -99,21 +109,6 @@ const filterFive = () => {
     }
   }
 }
-
-// フィルターリセット関数
-const filterReset = () => {
-  const notFive = document.getElementsByClassName(notFiveNameClass);
-  for (let i = 0; i < notFive.length; i++) {
-    notFive[i].style.display ="inline-block";
-  }
-
-  const nameFive = document.getElementsByClassName(fiveNameClass);
-  for (let i = 0; i < nameFive.length; i++) {
-    nameFive[i].style.display ="inline-block";
-  }
-}
-
-
 
 // 検索と5文字フィルター関数
 const wordSearch = () => {
@@ -142,15 +137,20 @@ const inputCheck = () => {
   }
 }
 
-// イベントリスナ
+/* イベントリスナ*/
 
-// 名前文字数フィルター関数ボタン
+// フィルターリセットボタン
+resetFilterBtn.addEventListener('click', () => {
+  resetFilter();
+});
+
+// 5文字フィルターボタン
 filterFiveBtn.addEventListener('click', () => {
   filterFive();
 });
 
+/* メイン */
 
-// メイン
 (async () => {
   const startNum = 1;
   const DPtNum = 493;
