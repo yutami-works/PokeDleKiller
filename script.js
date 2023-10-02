@@ -3,13 +3,17 @@
 const pokeFramesId     = 'poke-frame'
 const resetFilterBtnId = 'reset-filter-btn';
 const filterFiveBtnId  = 'filter-five-btn';
+const okWordBoxId      = 'ok-word-box'
+const filterWordBtnId  = 'filter-word-btn'
+const inputCheckId     = 'input-check';
+
 const pokeFrames     = document.getElementsByClassName(pokeFramesId);
 const resetFilterBtn = document.getElementById(resetFilterBtnId);
 const filterFiveBtn  = document.getElementById(filterFiveBtnId);
+const okWordBox      = document.getElementById(okWordBoxId);
+const filterWordBtn  = document.getElementById(filterWordBtnId);
+const inputCheckMsg  = document.getElementById(inputCheckId);
 
-// グローバル変数
-const fiveNameClass = 'c5';
-const notFiveNameClass = 'c1';
 
 /* 関数群 */
 
@@ -57,9 +61,9 @@ const createPokeBookElement = (pokeData) => {
 
   // 個別divクラス名生成
   if (pokeData.name.length === 5 ) {
-    divClassName = `${divClassName} ${fiveNameClass} ${pokeData.type1}`;
+    divClassName = `${divClassName} ${pokeData.type1}`;
   } else {
-    divClassName = `${divClassName} ${notFiveNameClass} ${pokeData.type1}`;
+    divClassName = `${divClassName} ${pokeData.type1}`;
   }
 
   // 生成ターゲット
@@ -92,52 +96,85 @@ const createPokeBookElement = (pokeData) => {
   bookWrapper.appendChild(div);
 }
 
+// div枠から名前を取得する関数
+const getPokeFrameName = (frameElm) => {
+  // 最後の子要素って指定方法なんとかならないんですかね…
+  const pokeName = frameElm.lastElementChild.textContent;
+  return pokeName;
+}
+
+// div枠を表示する関数
+const displayPokeFrame = (frameElm) => {
+  frameElm.style.display = 'inline-block';
+}
+
+// div枠を非表示にする関数
+const hidePokeFrame = (frameElm) => {
+  frameElm.style.display = 'none';
+}
+
 // フィルターリセット関数
 const resetFilter = () => {
+  // 全frameを表示
   for (const frame of pokeFrames) {
-    frame.style.display ="inline-block";
+    displayPokeFrame(frame);
   }
 }
 
 // 5文字フィルター関数
 const filterFive = () => {
   for (const frame of pokeFrames) {
-    // 最後の子要素って指定方法なんとかならないんですかね…
-    const pokeName = frame.lastElementChild.textContent;
+    const pokeName = getPokeFrameName(frame);
     if (pokeName.length < 5) {
-      frame.style.display ="none";
+      hidePokeFrame(frame);
     }
   }
 }
 
-// 検索と5文字フィルター関数
-const wordSearch = () => {
-  const targetWord = document.getElementById("search-box").value;
-  const nameFive = document.getElementsByClassName(fiveNameClass);
-  for (let i = 0; i < nameFive.length; i++) {
-    const targetName = nameFive[i].lastElementChild.textContent;
-    if (targetName.indexOf(targetWord) != -1) {
-      nameFive[i].style.display ="inline-block";
+// 特定文字フィルター関数
+const filterWords = () => {
+  const okWordBoxStr = okWordBox.value;
+  if (!okWordBoxStr) {
+    resetFilter();
+    return;
+  }
+  // ワードを1文字のリストにする
+  const wordsList = okWordBoxStr.split('');
+  for (const frame of pokeFrames) {
+    const pokeName = getPokeFrameName(frame);
+    let displayFlag = false;
+    for (const word of wordsList) {
+      if (pokeName.indexOf(word) != -1) {
+        displayFlag = true;
+      } else {
+        // 1つでも合致しないワードがある場合は非表示
+        displayFlag = false;
+        break;
+      }
+    }
+    if (displayFlag) {
+      displayPokeFrame(frame);
     } else {
-      nameFive[i].style.display ="none";
+      hidePokeFrame(frame);
     }
   }
+
+  // 5文字も非表示
   filterFive();
 }
 
 // 検索ボックスエラー表示関数
 const inputCheck = () => {
-  const inputValue = document.getElementById( "search-box" ).value;
+  const inputValue = okWordBox.value;
   if (!(inputValue.match(/^[ァ-ンヴー]*$/))) {
-    document.getElementById( "check" ).innerHTML = 'カタカナで入力してください';
-  } else if (inputValue.length > 5) {
-    document.getElementById( "check" ).innerHTML = '5文字以内で入力してください';
+    inputCheckMsg.innerHTML = 'カタカナで入力してください';
   } else {
-    document.getElementById( "check" ).innerHTML = '';
+    inputCheckMsg.innerHTML = '';
   }
 }
 
-/* イベントリスナ*/
+
+/* イベントリスナ */
 
 // フィルターリセットボタン
 resetFilterBtn.addEventListener('click', () => {
@@ -149,7 +186,18 @@ filterFiveBtn.addEventListener('click', () => {
   filterFive();
 });
 
-/* メイン */
+// 文字フィルターボタン
+filterWordBtn.addEventListener('click', () => {
+  filterWords();
+});
+
+// バリデーション
+okWordBox.addEventListener('keyup', () => {
+  inputCheck();
+});
+
+
+/* メインロジック */
 
 (async () => {
   const startNum = 1;
